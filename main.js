@@ -12,21 +12,80 @@ const printToDom = (domString, divId) => {
 };
   
 const buildDomString = (solarArray) => {
-        console.log(solarArray);
+    console.log(solarArray);
     let domString = "";
-        solarArray.forEach((planet) => {
-                let planetName = planet.name.toLowerCase();
-                domString += `<div class="planet" id="${planetName}">`;
-                domString += `<img class="planet-image" src="${planet.imageUrl}">`;
-                domString += `<h1>${planet.name}</h1>`;
-                domString += `<h3>Number of moons ${planet.numberOfMoons}</h3>`;
-                domString += `<p>largest Moon - ${planet.nameOfLargestMoon}</p>`;
-                domString += `<p>${planet.description}</p>`;
-                domString += `</div>`;
-        });
+solarArray.forEach((planet) => {
+
+        let planetName = planet.name.toLowerCase();
+
+        if (planet.isGasPlanet) {
+                domString += `<div class="planet gas-planet">`;
+        } else {
+                domString += `<div class="planet no-gas">`;
+        }
+                      
+     
+
+      
+
+        domString += `
+                <div class="planet-info">
+                        <img class="planet-image" src="${planet.imageUrl}">
+                        <h1>${planet.name}</h1>
+                        <h3>Number of moons ${planet.numberOfMoons}</h3>
+                        <p>largest Moon - ${planet.nameOfLargestMoon}</p>
+                        <p>${planet.description}</p>
+                </div>
+        
+        `
+
+        domString += `
+                <div class="hidden-planet">
+                        <img class="planet-image" src="${planet.imageUrl}"></div>
+                </div>
+        `
+
+});
 printToDom(domString, "solar");
 
 };
+
+
+function togglePlanet(e){
+
+        let planetInfo = e.currentTarget.children[0]
+        let planetImage = e.currentTarget.children[1]
+
+        console.log(planetInfo.classList)
+        let isHovered = planetImage.classList.contains("hover-planet")
+
+        if(isHovered){
+                planetInfo.classList.remove("hidden-planet");
+                planetImage.classList.add("hidden-planet");
+                
+        }
+
+        planetImage.classList.remove("hidden-planet");
+        planetInfo.classList.add("hidden-planet");
+        
+}
+
+
+const addHoverEventListener = () =>{
+        let mouseOverPlanet = document.getElementsByClassName("planet");
+        console.log("moveOverPlanet:", mouseOverPlanet.length)
+      
+        for( let i = 0; i < mouseOverPlanet.length; i++) {
+              
+                ["mouseover","mouseout"].forEach((eventType) =>{
+                        mouseOverPlanet[i].addEventListener(eventType, togglePlanet);  
+                })
+              
+        }    
+};
+
+
+
 
 
 //do xhr and store in variable
@@ -37,6 +96,7 @@ function executeThisCodeIfXHRFails () {
 function executeThisCodeAfterFileLoaded () {  
         const data = JSON.parse(this.responseText);
         buildDomString(data.planets); // BUILD YOUR DOMSTRING HERE
+        addHoverEventListener();
 
 }
        
@@ -46,7 +106,7 @@ const startApplication = () => {
        myRequest.addEventListener("error", executeThisCodeIfXHRFails);
        myRequest.open("GET", "planet.json");
        myRequest.send();
-
+       
 };
        
 
