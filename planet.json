@@ -1,0 +1,82 @@
+
+{
+"planets": [{
+  
+"name":"Mercury",
+"imageUrl": "https://solarsystem.nasa.gov/system/stellar_items/list_view_images/2_mercury_480x320_new.jpg",
+"description":"The sun-scorched innermost planet is an intriguing world of extremes.",
+"isGasPlanet":true,
+"numberOfMoons":2,
+"nameOfLargestMoon":"Deimos"
+},
+
+{
+    "name":"Earth ",
+    "imageUrl": "https://solarsystem.nasa.gov/system/stellar_items/list_view_images/4_earth_480x320.jpg",
+    "description":"Earth is the third planet from the sun and the fifth largest in the solar system.",
+    "isGasPlanet": false,
+    "numberOfMoons":1,
+    "nameOfLargestMoon":"Moon"
+
+},
+
+
+{
+    "name":"Jupiter ",
+    "imageUrl": "https://solarsystem.nasa.gov/system/stellar_items/list_view_images/9_jupiter_480x320_new.jpg",
+    "description":"Jupiter is the fifth planet from our sun and the largest planet in the solar system.",
+    "isGasPlanet": true,
+    "numberOfMoons":53,
+    "nameOfLargestMoon":"Ganymede"
+
+},
+{
+    "name":"Uranus",
+    "imageUrl": "https://solarsystem.nasa.gov/system/stellar_items/list_view_images/69_uranus_480x320.jpg",
+    "description":"Uranus The seventh planet from the sun with the third largest diameter in our solar system, Uranus is very cold and windy.",
+    "isGasPlanet":true,
+    "numberOfMoons":27,
+    "nameOfLargestMoon":"Titania"
+
+},
+{
+    "name":"Neptune",
+    "imageUrl": "https://solarsystem.nasa.gov/system/stellar_items/list_view_images/90_neptune_480x320.jpg",
+    "description":"Dark, cold and whipped by supersonic winds, Neptune is the last of the hydrogen and helium gas giants in our solar system.",
+    "isGasPlanet":true,
+    "numberOfMoons":13,
+    "nameOfLargestMoon":"Triton"
+
+},
+{
+    "name":"Venus",
+    "imageUrl": "https://solarsystem.nasa.gov/system/stellar_items/list_view_images/3_480x320_venus.png",
+    "description":" Venus is the second planet from the sun and our closest planetary neighbor.",
+    "isGasPlanet":true,
+    "numberOfMoons":0,
+    "nameOfLargestMoon":"Venus has no moon"
+    
+
+},
+{
+    "name":"Mars",
+    "imageUrl": "https://solarsystem.nasa.gov/system/stellar_items/list_view_images/6_mars_480x320.jpg",
+    "description":"Mars may have once been a wet world like Earth. Where did the water go?",
+    "isGasPlanet": true,
+    "numberOfMoons": 2,
+    "nameOfLargestMoon":"Phobos "
+
+},
+{
+    "name":"Saturn",
+    "imageUrl": "https://solarsystem.nasa.gov/system/stellar_items/list_view_images/38_saturn_480x320.jpg",
+    "description":"Saturn The second largest planet in our solar system, adorned with thousands of beautiful ringlets, Saturn is unique among the planets.",
+    "isGasPlanet": true,
+    "numberOfMoons":53,
+    "nameOfLargestMoon":"Titan "
+
+
+
+    }
+  ] 
+}

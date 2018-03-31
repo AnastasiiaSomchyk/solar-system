@@ -1,0 +1,26 @@
+body{
+  background-color: black;
+}
+
+#solar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+  }
+  
+  .planet {
+    margin: 1%;
+    padding: 2%;
+    width: 300px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.769);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.1em; 
+    border: 1px solid rgba(172, 255, 47, 0.329);
+  }
+  
+  .planet-image{
+    width: 300px;
+  }
+
