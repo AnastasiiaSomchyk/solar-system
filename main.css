@@ -20,6 +20,19 @@ body {
   -webkit-font-smoothing: antialiased;
   letter-spacing: 0.1em;
   border: 1px solid rgba(172, 255, 47, 0.329);
+  animation: fadeIn;
+  animation-duration: 0.3s;
+  animation-direction: normal;
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .planet-image {
@@ -78,16 +91,18 @@ body {
 
 .fullscreen-image-container {
   position: absolute;
-  margin-left: 400px;
-  margin-top: 30px;
-  margin-right: 400px;
   flex-direction: column;
-  height: 605px;
-  width: 500px;
+  align-items: center;
+  justify-content: center;
   top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
   display: none;
   z-index: 3;
   opacity: 0;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 #dynamic-content-container {
@@ -661,4 +676,19 @@ body {
     );
     transform: matrix3d(1.2, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   }
+}
+
+/*search bar*/
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+}
+.topnav input[type="text"] {
+  min-width: 50%;
+  padding: 6px;
+  border: none;
+  font-size: 17px;
 }
