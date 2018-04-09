@@ -1,5 +1,24 @@
 let data2 = [];
 
+const filterPlanetView = e => {
+  //1. Take the e.target.value and store in a variable
+  let value = e.target.value;
+
+  //2. Take the e.target.value.length and store in a variable
+  let valueLength = e.target.value.length;
+
+  console.log("value: ", value, " \nvalueLength: ", valueLength);
+
+  //3. filter values from data2.planets and see if it matches
+  let planetsToShow = data2.planets.filter(planet => {
+    let planetNameSubString = planet.name.substring(0, valueLength);
+    console.log("planetNameSubString: ", planetNameSubString);
+    return planetNameSubString.toLowerCase() === value.toLowerCase();
+  });
+
+  buildPlanets(planetsToShow);
+};
+
 const printToDom = (domString, divId) => {
   document.getElementById(divId).innerHTML = domString;
 };
@@ -25,6 +44,21 @@ const buildPlanets = planetData => {
   });
 
   printToDom(planetsHtmlString, "solar");
+  addPlanetClicked();
+};
+
+const togglePlanetVisibility = () => {
+  let visiblePlanets = document.getElementsByClassName("planet");
+  console.log("visible planets; ", visiblePlanets);
+  for (let i = 0; i < visiblePlanets.length; i++) {
+    let planet = visiblePlanets[i];
+
+    if (planet.style.display === "none") {
+      planet.style.display = "flex";
+    } else {
+      planet.style.display = "none";
+    }
+  }
 };
 
 function toggleBigPlanetImage(e) {
@@ -55,6 +89,7 @@ function toggleBigPlanetImage(e) {
   //6.  I past the planet data i found into the createPlanetHTML function, and then
   // I set that as the inner HTML of the "dynamic-content-container" div.
   dynamicContentContainer.innerHTML = createPlanetHTML(planetData);
+  togglePlanetVisibility();
 }
 
 function createPlanetHTML(planet) {
@@ -86,7 +121,6 @@ function executeThisCodeAfterFileLoaded() {
   const data = JSON.parse(this.responseText);
   data2 = data;
   buildPlanets(data.planets); // BUILD YOUR DOMSTRING HERE
-  addPlanetClicked();
 }
 
 const hideBigImageContainer = () => {
@@ -97,6 +131,7 @@ const hideBigImageContainer = () => {
     "dynamic-content-container"
   );
   dynamicContentContainer.innerHTML = "";
+  togglePlanetVisibility();
 };
 
 const startApplication = () => {
@@ -109,6 +144,9 @@ const startApplication = () => {
   //1. store close button element in variable
   let closeButton = document.getElementById("close-big-planet-image-button");
   closeButton.addEventListener("click", hideBigImageContainer);
+
+  let searchBarEvent = document.getElementById("search-bar");
+  searchBarEvent.addEventListener("keyup", filterPlanetView);
 };
 
 startApplication();
